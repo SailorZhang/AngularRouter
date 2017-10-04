@@ -6,7 +6,12 @@ import {Code404Component} from "./code404/code404.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path:'',
+    redirectTo:'/home',
+    pathMatch:'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {

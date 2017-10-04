@@ -12,6 +12,8 @@ export class StockComponent implements OnInit {
 
   isPro:boolean;
 
+  focus:boolean = false;
+
   constructor(private routeInfo: ActivatedRoute) {
   }
 
@@ -23,4 +25,7 @@ export class StockComponent implements OnInit {
     this.isPro = this.routeInfo.snapshot.data[0]["isPro"];
   }
 
+  isFocus(){
+    return this.focus;
+  }
 }

@@ -8,6 +8,7 @@ import {SellerListComponent} from "./seller-list/seller-list.component";
 import {ConsultComponent} from "./consult/consult.component";
 import {PermissionGuard} from "./guard/permission.guard";
 import {FocusGuard} from "./guard/focus.guard";
+import {StockResolve} from "./guard/stock.resolve";
 
 const routes: Routes = [
   {
@@ -37,8 +38,11 @@ const routes: Routes = [
         component: SellerListComponent
       }
     ],
-    canActivate: [PermissionGuard],
-    canDeactivate: [FocusGuard]
+    resolve: {
+      stock:StockResolve
+    }
+    // canActivate: [PermissionGuard],
+    // canDeactivate: [FocusGuard]
   },
   {
     path: '**',

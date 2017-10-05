@@ -11,6 +11,7 @@ import {SellerListComponent} from './seller-list/seller-list.component';
 import {ConsultComponent} from './consult/consult.component';
 import {PermissionGuard} from "./guard/permission.guard";
 import {FocusGuard} from "./guard/focus.guard";
+import {StockResolve} from "./guard/stock.resolve";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import {FocusGuard} from "./guard/focus.guard";
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [PermissionGuard, FocusGuard],
+  providers: [PermissionGuard, FocusGuard, StockResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule {

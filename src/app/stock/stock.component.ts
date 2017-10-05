@@ -8,24 +8,33 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class StockComponent implements OnInit {
 
-  stockId:number;
+  stock: Stock;
 
-  isPro:boolean;
+  isPro: boolean;
 
-  focus:boolean = false;
+  focus: boolean = false;
 
   constructor(private routeInfo: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.routeInfo.params.subscribe((params:Params)=>{
-      this.stockId = params["id"];
+    // this.routeInfo.params.subscribe((params: Params) => {
+    //   this.stockId = params["id"];
+    // });
+
+    this.routeInfo.data.subscribe((data: { stock: Stock }) => {
+      this.stock = data.stock;
     });
 
     this.isPro = this.routeInfo.snapshot.data[0]["isPro"];
   }
 
-  isFocus(){
+  isFocus() {
     return this.focus;
+  }
+}
+
+export class Stock {
+  constructor(public id: number, public name: string) {
   }
 }
